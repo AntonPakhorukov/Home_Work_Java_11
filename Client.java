@@ -24,14 +24,15 @@ public class Client {
                     System.out.println("Не корректный ввод");
                     continue;
                 }
+                // if (request.concat())
                 dataOutputStream.writeUTF(request);
-                System.out.println("Получен ответ от сервера: " + dataInputStream.readUTF());
+                System.out.println(dataInputStream.readUTF());
             }
             scanner.close();
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException ex) {
             ex.printStackTrace();
-        }
+        } 
     }
 }

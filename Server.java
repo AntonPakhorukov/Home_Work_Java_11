@@ -24,20 +24,44 @@ public class Server {
                 switch (sign) {
                     case "+":
                         result = a + b;
-                        dataOutputStream.writeUTF(String.format("Сумма чисел равна: %.2f", result));
-                        break;    
+                        if (result % 1 > 0) {
+                            dataOutputStream.writeUTF(String.format("Сумма чисел равна: %.2f", result));
+                            break;
+                        } else {
+                            int res = (int) result;
+                            dataOutputStream.writeUTF(String.format("Сумма чисел равна: %d", res));
+                            break;
+                        }    
                     case "-":
                         result = a - b;
-                        dataOutputStream.writeUTF(String.format("Разница чисел равна: %.2f", result));
-                        break;
+                        if (result % 1 > 0) {
+                            dataOutputStream.writeUTF(String.format("Разница чисел равна: %.2f", result));
+                            break;
+                        } else {
+                            int res = (int) result;
+                            dataOutputStream.writeUTF(String.format("Разница чисел равна: %d", res));
+                            break;
+                        }    
                     case "*":
                         result = a * b;
-                        dataOutputStream.writeUTF(String.format("Умножение чисел равно: %.2f", result));
-                        break;
+                        if (result % 1 > 0) {
+                            dataOutputStream.writeUTF(String.format("Умножение чисел равно: %.2f", result));
+                            break;
+                        } else {
+                            int res = (int) result;
+                            dataOutputStream.writeUTF(String.format("Умножение чисел равно: %d", res));
+                            break;
+                        }    
                     case "/":
                         result = a / b;
-                        dataOutputStream.writeUTF(String.format("Умножение чисел равно: %.2f", result));
-                        break;
+                        if (result % 1 > 0) {
+                            dataOutputStream.writeUTF(String.format("Деление чисел равно: %.2f", result));
+                            break;
+                        } else {
+                            int res = (int) result;
+                            dataOutputStream.writeUTF(String.format("Деление чисел равно: %d", res));
+                            break;
+                        }    
                 }
                 System.out.println("Клиент сказал" + clientRequest);
             }
