@@ -15,6 +15,7 @@ public class Server {
             DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
             while(true) {
                 String clientRequest = dataInputStream.readUTF();
+                if (clientRequest.equals("end")) break;
                 String[] str = clientRequest.split(" ");
                 double a = Double.parseDouble(str[0]);
                 String sign = str[1];
@@ -38,7 +39,6 @@ public class Server {
                         dataOutputStream.writeUTF(String.format("Умножение чисел равно: %.2f", result));
                         break;
                 }
-                if (clientRequest.equals("end")) break;
                 System.out.println("Клиент сказал" + clientRequest);
             }
         } catch (IOException e) {
