@@ -24,7 +24,16 @@ public class Client {
                     System.out.println("Не корректный ввод");
                     continue;
                 }
-                // if (request.concat())
+                // String[] value = request.split(" ");
+                // for (int i = 0; i < value.length; i = i + 2) {
+                //     String[] string = value[i].split("");
+                //     String find = "qwertyuiop[]asdfghjkl;'zxcvbnm/йцукенгшщзхъфывапролджэячсмитьбю!\"№%:?()ё~`@#$^&{}><";
+                //     for (int j = 0; j < string.length; j++) {
+                //         if (find.contains(string[j])){
+                //             string[j] = "";
+                //         }
+                //     }
+                // }
                 dataOutputStream.writeUTF(request);
                 System.out.println(dataInputStream.readUTF());
             }
@@ -33,6 +42,6 @@ public class Client {
             e.printStackTrace();
         } catch (IOException ex) {
             ex.printStackTrace();
-        } 
+        }
     }
 }
